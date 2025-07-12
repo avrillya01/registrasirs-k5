@@ -1,11 +1,55 @@
-@import 'tailwindcss';
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+.dashboard-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.stat-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stat-box h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #666;
+}
+
+.stat-box p {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+}
+
+.stat-box.pasien { border-left: 6px solid #007bff; }
+.stat-box.dokter { border-left: 6px solid #28a745; }
+.stat-box.kunjungan { border-left: 6px solid #ffc107; }
+
+.bg-custom-blue {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+.card-header-custom {
+    background-color: #17a2b8;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 20px;
 }
