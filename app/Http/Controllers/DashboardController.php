@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\registrasi_rumahsakitk5;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // Sementara, gunakan User sebagai pasien
+        // Jumlah pasien dari User
         $jumlahPasien = User::count();
-        // Jika ada model Pasien, ganti User::count() menjadi Pasien::count()
-
-        // Placeholder, ganti dengan model Dokter dan Kunjungan jika sudah ada
-        $jumlahDokter = 0;
-        $jumlahKunjungan = 0;
+        // Jumlah dokter dari registrasi_rumahsakitk5 (asumsi nama_dokter unik)
+        $jumlahDokter = registrasi_rumahsakitk5::distinct('nama_dokter')->count('nama_dokter');
+        // Jumlah kunjungan dari registrasi_rumahsakitk5
+        $jumlahKunjungan = registrasi_rumahsakitk5::count();
 
         return view('dashboard', compact('jumlahPasien', 'jumlahDokter', 'jumlahKunjungan'));
     }

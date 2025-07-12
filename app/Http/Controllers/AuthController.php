@@ -47,20 +47,18 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'phone' => 'required|string|max:20',
+            'email' => 'required|email',
+            'password' => 'required|string',
         ]);
 
-        $phone = $request->phone;
-        $user = User::where('phone', $phone)->first();
-
-        if ($user) {
-            Auth::login($user);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
-        } else {
-            // Redirect ke register dengan pesan
-            return redirect('/register')->with('phone', $phone)->with('warning', 'Nomor belum terdaftar. Silakan daftar akun.');
         }
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->withInput();
     }
 
     // Proses logout
@@ -69,6 +67,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/');
     }
 } 

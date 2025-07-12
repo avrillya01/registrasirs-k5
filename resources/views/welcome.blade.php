@@ -122,19 +122,17 @@
             <div class="logo">
                 <img src="/build/assets/hospital-logo.png" alt="Hospital Logo" style="height:48px;"/>
             </div>
-            <a class="close-btn" href="/dashboard" style="text-decoration:none;font-size:1rem;font-weight:bold;">Dashboard</a>
             <div class="form-title">Masuk/Daftar</div>
-            <div class="desc">Selamat datang di RumahSakit. Silahkan masukkan nomor handphone Anda untuk melanjutkan.</div>
+            <div class="desc">Selamat datang di RumahSakit. Silakan masukkan email dan password Anda untuk melanjutkan.</div>
             <form method="POST" action="/login">
                 @csrf
                 <div class="input-group">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="ID" />
-                    <select disabled style="background:#fff;">
-                        <option value="id">+62</option>
-                    </select>
-                    <input type="text" name="phone" placeholder="Nomor handphone" maxlength="15" required />
+                    <input type="email" name="email" placeholder="Email" required />
                 </div>
-                <button type="submit">Lanjutkan</button>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required />
+                </div>
+                <button type="submit">Login</button>
             </form>
         </div>
     </div>

@@ -11,7 +11,8 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "livewire/volt": "^1.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -59,5 +60,10 @@
     "post-update-cmd": [
         "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
     ]
-}
+},
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
